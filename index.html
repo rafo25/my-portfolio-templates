@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rafo28 • Portfolio</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{
+      --gold:#C9A227; /* Soft gold */
+      --light:#F5F6F8; /* Light gray background */
+      --ink:#0F172A;   /* Deep neutral text for readability */
+    }
+    ::selection{ background: var(--gold); color:#fff; }
+    .gold-gradient{ background: linear-gradient(135deg, rgba(201,162,39,0.18), rgba(201,162,39,0.06)); }
+    .preview-window{
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+    .window-bar{
+      height: 38px;
+      background: linear-gradient(180deg, #F7F7F9, #F0F1F4);
+      border-bottom: 1px solid #ECEEF2;
+      display: flex; align-items: center; gap: 8px; padding: 0 14px;
+    }
+    .dot{ width:10px; height:10px; border-radius:50%; background:#E5E7EB; }
+    .dot.gold{ background: var(--gold); }
+    .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* المسافة بين الكروت */
+  justify-content: center; /* محاذاة الكروت بالوسط */
+}
+
+  </style>
+</head>
+<body class="font-sans bg-white text-[var(--ink)] antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo + Name -->
+        <a href="#" class="flex items-center gap-3 group">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full ring-2 ring-[var(--gold)]">
+            <!-- Simple monogram logo -->
+            <svg viewBox="0 0 48 48" class="w-8 h-8">
+              <circle cx="24" cy="24" r="22" fill="white"></circle>
+              <path d="M17 32V16h9.2c4.2 0 7.3 2.9 7.3 7.9 0 5.2-3.1 8.1-7.3 8.1H17zm5.2-4.4h4c2 0 3.5-1.4 3.5-3.7 0-2.2-1.5-3.5-3.5-3.5h-4V27.6z" fill="var(--gold)"/>
+            </svg>
+          </span>
+          <span class="text-lg tracking-wide font-semibold">Rafo28</span>
+        </a>
+
+        <!-- Nav -->
+        <nav class="hidden md:flex items-center gap-7 text-sm">
+          <a href="#about" class="hover:text-[var(--gold)] transition-colors">About</a>
+          <a href="#portfolio" class="hover:text-[var(--gold)] transition-colors">Portfolio</a>
+          <a href="#contact" class="hover:text-[var(--gold)] transition-colors">Contact</a>
+          <a href="#portfolio" class="px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90 transition-opacity">View Work</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-black/10 hover:border-black/20 transition">
+          <span aria-hidden="true" class="block w-5 h-[2px] bg-[var(--ink)] mb-1 rounded"></span>
+          <span aria-hidden="true" class="block w-5 h-[2px] bg-[var(--ink)] rounded"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="mobileNav" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-3 text-sm">
+          <a href="#about" class="py-2 hover:text-[var(--gold)]">About</a>
+          <a href="#portfolio" class="py-2 hover:text-[var(--gold)]">Portfolio</a>
+          <a href="#contact" class="py-2 hover:text-[var(--gold)]">Contact</a>
+          <a href="#portfolio" class="mt-1 inline-flex justify-center px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90">View Work</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Lead -->
+  <section class="relative">
+    <div class="absolute inset-0 gold-gradient -z-10"></div>
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+        <div class="md:col-span-7">
+          <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
+            Minimal templates, refined details, and a touch of soft gold.
+          </h1>
+          <p class="mt-5 text-[15px] md:text-base text-black/70 max-w-2xl">
+            I craft clean, responsive HTML/CSS/JS templates and web projects focused on clarity, performance, and effortless elegance.
+          </p>
+          <div class="mt-7 flex items-center gap-3">
+            <a href="#portfolio" class="px-5 py-3 rounded-full bg-[var(--gold)] text-white hover:opacity-90 transition">Explore Portfolio</a>
+            <a href="https://github.com/rafo25" class="px-5 py-3 rounded-full border border-black/10 hover:border-black/20">Get in Touch</a>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <div class="mx-auto w-full max-w-sm preview-window">
+            <div class="window-bar">
+              <span class="dot gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="p-6">
+              <div class="h-3 w-28 bg-black/10 rounded mb-4"></div>
+              <div class="h-24 bg-[var(--light)] rounded mb-6"></div>
+              <div class="grid grid-cols-3 gap-3">
+                <div class="h-16 bg-[var(--light)] rounded"></div>
+                <div class="h-16 bg-[var(--light)] rounded"></div>
+                <div class="h-16 bg-[var(--light)] rounded"></div>
+              </div>
+              <div class="mt-6 h-3 w-24 bg-black/10 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-[var(--light)]">
+    <div class="max-w-6xl mx-auto px-5 py-14 md:py-18">
+      <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-4">
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <div class="w-24 h-24 rounded-full ring-4 ring-[var(--gold)] bg-white flex items-center justify-center">
+                <span class="text-3xl font-bold text-[var(--gold)]">R</span>
+              </div>
+            </div>
+            <div>
+              <h2 class="text-xl md:text-2xl font-semibold">About Me</h2>
+              <p class="text-black/60 text-sm">Designer • Frontend Developer</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-black/75 leading-relaxed">
+            Hi, I’m Rafo. I build modern, minimal web templates that balance aesthetics with usability. Each project focuses on clean structure, thoughtful spacing, and subtle polish—so your content shines first.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="bg-white">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <div class="flex items-end justify-between gap-4 mb-8">
+        <div>
+          <h3 class="text-2xl md:text-3xl font-semibold">Portfolio</h3>
+          <p class="text-black/60 mt-1">A few templates and projects ready to preview.</p>
+        </div>
+        <a href="#contact" class="hidden md:inline-flex px-4 py-2 rounded-full border border-black/10 hover:border-black/20">Work with me</a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+        <!-- Card 1 -->
+        <article class="group bg-white border border-black/5 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="preview-window">
+            <div class="window-bar">
+              <span class="dot gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="p-5">
+              <!-- صورة معاينة واجهة الموقع -->
+              <img src="pic/pic1.png" 
+                   alt="Website Template Preview" 
+                   class="h-24 w-full object-cover rounded mb-4" />
+
+              <div class="space-y-2">
+                <div class="h-3 w-36 bg-black/10 rounded"></div>
+                <div class="h-3 w-24 bg-black/10 rounded"></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="p-5 flex: 0 0 320px">
+              <h4 class="font-semibold">Tomoh Magazine</h4>
+              <p class="text-sm text-black/60 mt-1">Tamouh is a website about technology. It shares news and ideas to help people learn about new tech things. The site is easy to use and read.
+
+</p>
+              <div class="mt-4 flex items-center gap-3">
+                <a href="https://tomoh-it-25.netlify.app" target="_blank" 
+                   class="px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90 inline-block text-center">
+                  Live Preview
+                </a>
+                <a href="https://github.com/rafo25" class="text-sm hover:text-[var(--gold)]">Contact</a>
+              </div>
+            </div>
+
+        </article>
+
+        <!-- Card 2 -->
+        <article class="group bg-white border border-black/5 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="preview-window">
+            <div class="window-bar">
+              <span class="dot gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="p-5">
+              <!-- صورة معاينة واجهة الموقع -->
+              <img src="pic/pic2.png" 
+                   alt="Website Template Preview" 
+                   class="h-24 w-full object-cover rounded mb-4" />
+
+              <div class="space-y-2">
+                <div class="h-3 w-36 bg-black/10 rounded"></div>
+                <div class="h-3 w-24 bg-black/10 rounded"></div>
+              </div>
+            </div>
+          </div>
+         <div class="p-5">
+              <h4 class="font-semibold">NOVA Agency</h4>
+              <p class="text-sm text-black/60 mt-1">A modern and professional agency website template. Showcases services, portfolio, and team with sleek design and intuitive navigation, perfect for creative agencies and startups.</p>
+              <div class="mt-4 flex items-center gap-3">
+                <a href="https://nova-agency25.netlify.app/#home" target="_blank" 
+                   class="px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90 inline-block text-center">
+                  Live Preview
+                </a>
+                <a href="https://github.com/rafo25" class="text-sm hover:text-[var(--gold)]">Contact</a>
+              </div>    
+</div>
+          
+        </article>
+        <article class="group bg-white border border-black/5 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="preview-window">
+            <div class="window-bar">
+              <span class="dot gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          <div class="p-5">
+              <!-- صورة معاينة واجهة الموقع -->
+              <img src="pic/pic3.png" 
+                   alt="Website Template Preview" 
+                   class="h-24 w-full object-cover rounded mb-4" />
+
+              <div class="space-y-2">
+                <div class="h-3 w-36 bg-black/10 rounded"></div>
+                <div class="h-3 w-24 bg-black/10 rounded"></div>
+              </div>
+            </div>
+           </div>
+         <div class="p-5">
+              <h4 class="font-semibold">CalmBlog</h4>
+              <p class="text-sm text-black/60 mt-1">A clean and soothing blog template designed for effortless reading. Features minimalist layouts, soft colors, and clear typography to create a relaxing experience for personal or tech blogging.</p>
+              <div class="mt-4 flex items-center gap-3">
+                <a href="https://calm-blog-25.netlify.app" target="_blank" 
+                   class="px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90 inline-block text-center">
+                  Live Preview
+                </a>
+                <a href="#contact" class="text-sm hover:text-[var(--gold)]">Contact</a>
+              </div>    
+</div>
+          
+        </article>
+        <article class="group bg-white border border-black/5 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+       <div class="preview-window">
+            <div class="window-bar">
+              <span class="dot gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          <div class="p-5">
+              <!-- صورة معاينة واجهة الموقع -->
+              <img src="pic/pic4.png" 
+                   alt="Website Template Preview" 
+                   class="h-24 w-full object-cover rounded mb-4" />
+
+              <div class="space-y-2">
+                <div class="h-3 w-36 bg-black/10 rounded"></div>
+                <div class="h-3 w-24 bg-black/10 rounded"></div>
+              </div>
+            </div>
+          </div>
+         <div class="p-5">
+              <h4 class="font-semibold">Minimal Dashboard</h4>
+              <p class="text-sm text-black/60 mt-1">
+A clean and simple dashboard template designed to show important data clearly. It uses neat cards and calm spacing for easy navigation and quick insights.</p>
+              <div class="mt-4 flex items-center gap-3">
+                <a href="https://minimal-dashboard-25.netlify.app" target="_blank" 
+                   class="px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90 inline-block text-center">
+                  Live Preview
+                </a>
+                <a href="https://github.com/rafo25" class="text-sm hover:text-[var(--gold)]">Contact</a>
+              </div>    
+</div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="group bg-white border border-black/5 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="preview-window">
+            <div class="window-bar">
+              <span class="dot gold"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="p-5">
+              <div class="h-24 rounded bg-[var(--light)] mb-4"></div>
+              <div class="space-y-2">
+                <div class="h-3 w-20 bg-black/10 rounded"></div>
+                <div class="h-3 w-28 bg-black/10 rounded"></div>
+                <div class="h-3 w-16 bg-black/10 rounded"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h4 class="font-semibold">Minimal Dashboard</h4>
+            <p class="text-sm text-black/60 mt-1">Simple cards, calm spacing, and focused data.</p>
+            <div class="mt-4 flex items-center gap-3">
+              <button onclick="openPreview('dashboard')" class="px-4 py-2 rounded-full bg-[var(--gold)] text-white hover:opacity-90">Live Preview</button>
+              <a href="https://github.com/rafo25" class="text-sm hover:text-[var(--gold)]">Contact</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-[var(--light)]">
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <div class="max-w-2xl">
+        <h3 class="text-2xl md:text-3xl font-semibold">Let’s connect</h3>
+        <p class="text-black/70 mt-2">Let’s connect on GitHub!
+          happy to collaborate or share templates.”</p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <a href="https://github.com/rafo25" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-black/10 hover:border-black/20">
+            <!-- Mail icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.5 2.87 8.3 6.84 9.64.5.1.68-.22.68-.48 0-.24-.01-1.03-.02-1.86-2.78.62-3.37-1.2-3.37-1.2-.45-1.17-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.33 1.1 2.9.84.09-.66.35-1.1.64-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.75-.1-.26-.45-1.31.1-2.74 0 0 .85-.28 2.78 1.05.81-.23 1.67-.35 2.53-.35s1.72.12 2.53.35c1.93-1.33 2.78-1.05 2.78-1.05.55 1.43.2 2.48.1 2.74.64.71 1.03 1.63 1.03 2.75 0 3.94-2.35 4.81-4.58 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.59.69.49A10.23 10.23 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" fill="var(--gold)"/>
+              </svg>
+            Rafo28
+          </a>
+
+          <div class="flex items-center gap-3">
+            <!-- 
+            <a href="https://github.com/rafo25" target="_blank" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-black/10 hover:border-black/20" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.5 2.87 8.3 6.84 9.64.5.1.68-.22.68-.48 0-.24-.01-1.03-.02-1.86-2.78.62-3.37-1.2-3.37-1.2-.45-1.17-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.33 1.1 2.9.84.09-.66.35-1.1.64-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.75-.1-.26-.45-1.31.1-2.74 0 0 .85-.28 2.78 1.05.81-.23 1.67-.35 2.53-.35s1.72.12 2.53.35c1.93-1.33 2.78-1.05 2.78-1.05.55 1.43.2 2.48.1 2.74.64.71 1.03 1.63 1.03 2.75 0 3.94-2.35 4.81-4.58 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.59.69.49A10.23 10.23 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" fill="var(--gold)"/>
+              </svg>
+            </a>
+            <!-- LinkedIn 
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-black/10 hover:border-black/20" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="18" height="18" rx="2.5" stroke="var(--gold)"/>
+                <path d="M8 10v7M8 7.5v.1M12 17v-4.2c0-1.7 2-1.9 2-0V17M12 12.8V17" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <!-- X/Twitter 
+            <a href="https://x.com/yourprofile" target="_blank" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border border-black/10 hover:border-black/20" aria-label="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4l16 16M20 4 4 20" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-xs text-black/50">
+        © <span id="year"></span> Rafo28. Crafted with care.
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50" onclick="closePreview()" aria-hidden="true"></div>
+    <div class="relative z-10 max-w-5xl mx-auto mt-10 md:mt-16 mb-8 px-5">
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-black/10">
+        <div class="flex items-center justify-between p-4 border-b border-black/10">
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--gold)]"></span>
+            <h5 id="previewTitle" class="font-semibold">Live Preview</h5>
+          </div>
+          <button onclick="closePreview()" class="px-3 py-1.5 rounded-full border border-black/10 hover:border-black/20">
+            Close
+          </button>
+        </div>
+        <div class="aspect-[16/9] bg-[var(--light)]">
+          <iframe id="previewFrame" title="Template Preview" class="w-full h-full"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+      });
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Preview content (kept within the same soft palette)
+    const previews = {
+      blog: `
+        <!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+          :root{ --gold:#C9A227; --light:#F5F6F8; --ink:#0F172A; }
+          *{ box-sizing: border-box; } body{ margin:0; font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); background:white; }
+          .wrap{ max-width: 880px; margin: 0 auto; padding: 28px; }
+          .pill{ display:inline-block; padding:6px 12px; background:var(--light); border-radius:999px; color:#475569; font-size:12px; letter-spacing:.02em;}
+          h1{ font-weight:700; font-size:28px; margin:10px 0 6px;}
+          p{ line-height:1.65; color:#334155;}
+          .banner{ background: linear-gradient(135deg, rgba(201,162,39,.18), rgba(201,162,39,.05)); border:1px solid rgba(15,23,42,.06); padding:20px; border-radius:14px; margin:16px 0 24px;}
+          .btn{ display:inline-block; padding:10px 14px; background:var(--gold); color:white; border-radius:999px; text-decoration:none;}
+        </style></head><body>
+          <div class="wrap">
+            <span class="pill">Blog</span>
+            <h1>Designing with space and silence</h1>
+            <p class="banner">A clean article layout with generous spacing and a soft-gold accent bar. Focus on readability and rhythm.</p>
+            <p>Minimalism isn’t emptiness—it’s clarity. Reduce noise, highlight intent, and let the message breathe. Typography and spacing carry more weight than ornament.</p>
+            <p>Balance contrast, align to a clear grid, and keep interactions calm. When in doubt, remove anything that doesn’t help the reader.</p>
+            <a class="btn" href="#">Read more</a>
+          </div>
+        </body></html>
+      `,
+      landing: `
+        <!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+          :root{ --gold:#C9A227; --light:#F5F6F8; --ink:#0F172A; }
+          *{ box-sizing:border-box; } body{ margin:0; font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); background:white;}
+          .hero{ padding:52px 24px 40px; background:linear-gradient(135deg, rgba(201,162,39,.16), rgba(201,162,39,.04)); border-bottom:1px solid rgba(15,23,42,.06);}
+          .container{ max-width:1000px; margin:0 auto; }
+          h1{ font-size:34px; margin:0 0 10px; font-weight:700;}
+          p{ color:#334155; margin:0 0 16px; }
+          .cta{ display:inline-block; padding:12px 18px; background:var(--gold); color:white; border-radius:999px; text-decoration:none; }
+          .cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; padding:24px;}
+          .card{ background:white; border:1px solid rgba(15,23,42,.06); border-radius:14px; padding:16px; }
+          .bar{ height:8px; width:64px; background:var(--gold); border-radius:999px; margin-bottom:10px;}
+        </style></head><body>
+          <header class="hero">
+            <div class="container">
+              <h1>Elegant Landing Made Simple</h1>
+              <p>Clean hero, clear message, and a calm path to action.</p>
+              <a class="cta" href="#">Get Started</a>
+            </div>
+          </header>
+          <main class="container">
+            <section class="cards">
+              <div class="card"><div class="bar"></div><p>Convert with clarity—no clutter.</p></div>
+              <div class="card"><div class="bar"></div><p>Responsive by default; it just fits.</p></div>
+              <div class="card"><div class="bar"></div><p>Soft-gold accent for a refined feel.</p></div>
+            </section>
+          </main>
+        </body></html>
+      `,
+      dashboard: `
+        <!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+          :root{ --gold:#C9A227; --light:#F5F6F8; --ink:#0F172A; }
+          *{ box-sizing:border-box; } body{ margin:0; font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); background:white;}
+          .layout{ display:grid; grid-template-columns: 220px 1fr; min-height:100vh; }
+          .side{ background:var(--light); border-right:1px solid rgba(15,23,42,.06); padding:20px; }
+          .brand{ display:flex; align-items:center; gap:10px; margin-bottom:20px;}
+          .dot{ width:10px; height:10px; border-radius:50%; background:var(--gold);}
+          .menu a{ display:block; padding:10px 12px; border-radius:10px; color:#334155; text-decoration:none; }
+          .menu a.active{ background:white; border:1px solid rgba(15,23,42,.06); }
+          .main{ padding:22px; }
+          .cards{ display:grid; gap:14px; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+          .card{ background:white; border:1px solid rgba(15,23,42,.06); border-radius:14px; padding:16px; }
+          .label{ font-size:12px; color:#64748B; }
+          .value{ font-weight:700; font-size:24px; margin-top:6px; }
+          .bar{ height:6px; background:linear-gradient(90deg, var(--gold), rgba(201,162,39,.35)); border-radius:999px; margin-top:10px;}
+        </style></head><body>
+          <div class="layout">
+            <aside class="side">
+              <div class="brand"><span class="dot"></span><strong>Dashboard</strong></div>
+              <nav class="menu">
+                <a href="#" class="active">Overview</a>
+                <a href="#">Reports</a>
+                <a href="#">Settings</a>
+              </nav>
+            </aside>
+            <main class="main">
+              <h2 style="margin:0 0 14px; font-size:20px;">Today</h2>
+              <section class="cards">
+                <div class="card"><div class="label">Visitors</div><div class="value">2,341</div><div class="bar"></div></div>
+                <div class="card"><div class="label">Signups</div><div class="value">128</div><div class="bar"></div></div>
+                <div class="card"><div class="label">Revenue</div><div class="value">$1,204</div><div class="bar"></div></div>
+              </section>
+            </main>
+          </div>
+        </body></html>
+      `
+    };
+
+    function openPreview(which){
+      const frame = document.getElementById('previewFrame');
+      const title = document.getElementById('previewTitle');
+      frame.srcdoc = previews[which] || '';
+      title.textContent = which === 'blog' ? 'Clean Blog Template'
+                        : which === 'landing' ? 'Elegant Landing Page'
+                        : which === 'dashboard' ? 'Minimal Dashboard'
+                        : 'Live Preview';
+      document.getElementById('previewModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePreview(){
+      document.getElementById('previewModal').classList.add('hidden');
+      document.getElementById('previewFrame').srcdoc = '';
+      document.body.style.overflow = '';
+    }
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closePreview();
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96c2137ad38852f4',t:'MTc1NDY4ODIxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
